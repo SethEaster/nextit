@@ -9,6 +9,7 @@ Available at [nextit.seaster.dev](https://nextit.seaster.dev/)
 ## Warning ⚠️
 
 This project is in development and is not feature complete.
+Expect bugs.
 It can currently only handle basic browsing of Reddit.
 
 ## License
