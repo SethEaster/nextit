@@ -7,17 +7,13 @@ import { useRouter } from 'next/router';
 import { queryClient } from 'pages/_app';
 import { processTextBodyHtml } from 'processTextBodyHtml';
 import { useListing } from 'queries/useListing';
-import { useSubreddit } from 'queries/useSubreddit';
+import { PSEUDO_SUBREDDITS, useSubreddit } from 'queries/useSubreddit';
 import { FC, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Skeleton from 'react-loading-skeleton';
 import MediaQuery from 'react-responsive';
 import { Reddit } from 'reddit.types';
 import styles from './Subreddit.module.scss';
-
-// Reddit has some pseudo-subreddits that don't actually have metadata,
-// so we need to hide the sidebar on these.
-const PSEUDO_SUBREDDITS = ['all', 'popular'];
 
 export const Subreddit: FC<{
   subredditName: string;
