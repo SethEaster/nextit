@@ -68,10 +68,10 @@ export const ProfileDropdown: FC = () => {
     <div
       className={classNames(styles.dropdown, {
         [styles.open]: open,
-        [styles.loggedIn]: me.isSuccess,
+        [styles.loggedIn]: me.data,
       })}
     >
-      {me.isSuccess ? (
+      {me.data ? (
         <div className={styles.user} onClick={() => setOpen(!open)}>
           <img className={styles.avatar} src={me.data?.subreddit.icon_img} />
           <div className={styles.username}>
