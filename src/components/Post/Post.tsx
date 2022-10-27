@@ -115,9 +115,11 @@ export const Post: FC<{
 
   return (
     <>
-      <Head>
-        <title>{`${post.title} | Nextit`}</title>
-      </Head>
+      {!listing ? (
+        <Head>
+          <title>{`${post.title} | Nextit`}</title>
+        </Head>
+      ) : null}
       <div className={styles.post} onClick={() => console.log(post)}>
         {subreddit != post.subreddit ? (
           <Link href={`/r/${post.subreddit}`} title={post.sr_detail?.title}>
