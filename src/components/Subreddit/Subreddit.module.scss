@@ -1,0 +1,94 @@
+.subreddit {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  margin: 0 32px;
+
+  .header {
+    width: 100vw;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 32px;
+  }
+
+  .icon {
+    position: absolute;
+
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+  }
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  > * {
+    margin: 0 16px;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding-top: 32px;
+    width: 1000px;
+
+    @media only screen and (max-width: 1032px) {
+      width: calc(100vw - 32px);
+    }
+  }
+
+  .sidebar {
+    // background: red;
+    width: 400px;
+    height: 20px;
+
+    .sidebarContainer {
+      border-radius: 8px;
+      padding: 16px;
+      background: rgb(20, 20, 20);
+    }
+
+    .sidebarDivider {
+      margin: 16px 0;
+      border-bottom: 2px solid rgb(42, 42, 42);
+    }
+
+    .about {
+      .counts {
+        display: flex;
+
+        .members,
+        .online {
+          flex: 1;
+
+          .count {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .cakeDay {
+      .date {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.loadMore {
+  padding: 16px;
+  margin: 16px 0;
+  background-color: rgba(74, 72, 72, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,216 @@
+.comment {
+  display: flex;
+  padding: 16px 12px;
+  border-radius: 8px;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+
+  &.reply {
+    background-color: unset;
+    padding: 0px 12px 16px 12px;
+    margin: 0;
+
+    @media only screen and (max-width: 768px) {
+      padding: 0px 12px 16px 0;
+    }
+  }
+
+  &.collapsed {
+    .authorRow {
+      opacity: 0.5;
+    }
+  }
+
+  .authorRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+
+  .left,
+  .right {
+    pointer-events: all;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 8px;
+
+    .authorAvatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .expand {
+      cursor: pointer;
+      padding: 4px 6px;
+
+      border-radius: 4px;
+
+      transition: background-color 0.1s ease-out, color 0.1s ease-out;
+      background: rgba(0, 0, 0, 0);
+
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000;
+      }
+    }
+
+    .threadlineWrapper {
+      flex-grow: 1;
+      cursor: pointer;
+
+      &:hover {
+        .threadline {
+          border-right-color: rgb(175, 175, 175);
+        }
+      }
+
+      .threadline {
+        transition: border-color 0.1s ease-out;
+        border-right-width: 2px;
+        border-right-color: rgb(104, 104, 104);
+        border-right-style: solid;
+        margin: 0 12px;
+        height: 100%;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+
+    .author {
+      display: flex;
+      align-items: center;
+      .authorNameAndFlair {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        // padding: 8px;
+        font-size: 12px;
+        justify-content: center;
+
+        .authorFlair {
+          margin: 2px 0;
+          font-size: 12px;
+          background: rgb(15, 15, 15);
+          width: fit-content;
+          // padding: 4px 6px;
+          border-radius: 4px;
+          line-height: 16px;
+          padding: 0 4px;
+        }
+      }
+    }
+
+    .body {
+      word-break: normal;
+      font-size: 14px;
+
+      p {
+        margin: 0;
+      }
+
+      p + p {
+        margin: 8px 0 0 0;
+      }
+
+      hr {
+        border: 1px rgb(65, 65, 65) solid;
+      }
+
+      blockquote {
+        margin: 0;
+
+        p {
+          margin: 4px 0 4px 8px;
+          border-left: 4px rgb(65, 65, 65) solid;
+          padding: 2px 8px;
+          background-color: rgb(255, 255, 255, 0.01);
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      padding: 8px 0;
+      font-size: 12px;
+      align-items: center;
+
+      .action {
+        margin: 0 2px;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 2px 4px;
+        border-radius: 2px;
+
+        transition: background-color 0.1s ease-out, color 0.1s ease-out;
+        background: rgba(0, 0, 0, 0);
+
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          color: #000;
+        }
+      }
+
+      .updoot,
+      .downdoot {
+        width: fit-content;
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin: 0 2px;
+        cursor: pointer;
+      }
+
+      .updoot {
+        &.activeVote {
+          color: rgb(248, 148, 71);
+          background-color: rgb(248, 148, 71, 0.2);
+          &:hover {
+            background-color: rgb(248, 148, 71, 0.5);
+          }
+        }
+      }
+
+      .downdoot {
+        &.activeVote {
+          color: rgb(124, 71, 248);
+          background-color: rgb(124, 71, 248, 0.2);
+          &:hover {
+            background-color: rgb(124, 71, 248, 0.5);
+          }
+        }
+      }
+
+      .score {
+        font-weight: 800;
+        padding: 0 4px;
+      }
+    }
+
+    .replies {
+      pointer-events: none;
+
+      @media only screen and (min-width: 768px) {
+        transform: translateX(-28px);
+      }
+
+      .comment {
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.skeleton {
+  width: 100%;
+  flex: 1;
+}

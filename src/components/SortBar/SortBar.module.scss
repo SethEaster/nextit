@@ -1,0 +1,28 @@
+.sortBar {
+  display: flex;
+  flex: 1;
+
+  .option {
+    padding: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s ease-out;
+    font-size: 1rem;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    &.active,
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media only screen and (max-width: 768px) {
+      background-color: rgba(255, 255, 255, 0.025);
+    }
+  }
+}

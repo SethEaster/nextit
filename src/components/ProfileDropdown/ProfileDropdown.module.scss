@@ -1,0 +1,100 @@
+.dropdown {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 4px 16px;
+  border-radius: 8px;
+  transition: border-radius 0.1s ease-out, background-color 0.1s ease-out;
+
+  &.loggedIn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.open {
+    &,
+    .container {
+      background-color: #181818;
+    }
+
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  .login {
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.1s ease-out;
+
+    &.loading {
+      animation: loadingBreath 1s ease-out infinite normal;
+    }
+
+    &:not(.loading) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      @media only screen and (max-width: 768px) {
+        background-color: rgba(255, 255, 255, 0.025);
+      }
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .username {
+      padding: 8px;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    transform-origin: top;
+
+    .option {
+      text-align: center;
+      padding: 16px;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.1s ease-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+@keyframes loadingBreath {
+  0% {
+    color: rgb(103, 103, 103);
+  }
+
+  50% {
+    color: rgb(172, 172, 172);
+  }
+
+  100% {
+    color: rgb(103, 103, 103);
+  }
+}

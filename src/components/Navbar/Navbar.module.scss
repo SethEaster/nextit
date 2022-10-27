@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0 32px;
+  margin-bottom: 16px;
+  height: 64px;
+  z-index: 100;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 16px;
+  }
+
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.1s ease-out;
+
+  &.scrolled {
+    background: #19191a;
+  }
+
+  .navLinks {
+    display: flex;
+
+    .navLink {
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.1s ease-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      @media only screen and (max-width: 768px) {
+        background-color: rgba(255, 255, 255, 0.025);
+      }
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
