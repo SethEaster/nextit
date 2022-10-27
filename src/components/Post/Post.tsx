@@ -87,11 +87,9 @@ export const Post: FC<{
     } else if (IMAGE_EXTENSIONS.some(ext => post.url.endsWith(ext))) {
       return listing ? (
         <Link href={href} passHref scroll={true}>
-          <a>
-            <div className={styles.image}>
-              <img src={post.url}></img>
-            </div>
-          </a>
+          <div className={styles.image}>
+            <img src={post.url}></img>
+          </div>
         </Link>
       ) : (
         <a href={post.url} target="_blank">
@@ -122,15 +120,13 @@ export const Post: FC<{
       </Head>
       <div className={styles.post} onClick={() => console.log(post)}>
         {subreddit != post.subreddit ? (
-          <Link href={`/r/${post.subreddit}`}>
-            <a title={post.sr_detail?.title}>
-              <div className={styles.subreddit}>
-                {post.sr_detail?.icon_img ? (
-                  <img src={post.sr_detail?.icon_img} className={styles.icon} />
-                ) : null}
-                r/{post.subreddit}
-              </div>
-            </a>
+          <Link href={`/r/${post.subreddit}`} title={post.sr_detail?.title}>
+            <div className={styles.subreddit}>
+              {post.sr_detail?.icon_img ? (
+                <img src={post.sr_detail?.icon_img} className={styles.icon} />
+              ) : null}
+              r/{post.subreddit}
+            </div>
           </Link>
         ) : null}
         <div className={styles.header}>
@@ -153,9 +149,7 @@ export const Post: FC<{
           </div>
         </div>
         <Link href={href} passHref scroll={true}>
-          <a>
-            <div className={styles.title}>{post.title}</div>
-          </a>
+          <div className={styles.title}>{post.title}</div>
         </Link>
         {post.link_flair_text && (
           <div className={styles.flair}>{post.link_flair_text}</div>
@@ -185,17 +179,15 @@ export const Post: FC<{
                 passHref
                 scroll={true}
               >
-                <a>
-                  <div
-                    className={classNames(
-                      styles.selftext,
-                      styles.selftextClipped
-                    )}
-                    dangerouslySetInnerHTML={{
-                      __html: processTextBodyHtml(post.selftext_html, true),
-                    }}
-                  />
-                </a>
+                <div
+                  className={classNames(
+                    styles.selftext,
+                    styles.selftextClipped
+                  )}
+                  dangerouslySetInnerHTML={{
+                    __html: processTextBodyHtml(post.selftext_html, true),
+                  }}
+                />
               </Link>
             ) : (
               <div
@@ -208,16 +200,12 @@ export const Post: FC<{
           <>{renderLink()}</>
         </div>
         <div className={styles.actions}>
-          <Link href={href} passHref scroll={true}>
-            <a className={styles.action}>
-              <FontAwesomeIcon icon={faComments} style={{ padding: '0 8px' }} />{' '}
-              {post.num_comments} comments
-            </a>
+          <Link href={href} passHref scroll={true} className={styles.action}>
+            <FontAwesomeIcon icon={faComments} style={{ padding: '0 8px' }} />{' '}
+            {post.num_comments} comments
           </Link>
-          <Link href={'#'} passHref scroll={true}>
-            <a className={styles.action} style={{}}>
-              <FontAwesomeIcon icon={faShareFromSquare} />
-            </a>
+          <Link href={'#'} passHref scroll={true} className={styles.action}>
+            <FontAwesomeIcon icon={faShareFromSquare} />
           </Link>
         </div>
       </div>

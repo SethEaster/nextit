@@ -31,11 +31,16 @@ export const Navbar: FC<NavigationProps> = ({ subredditName }) => {
       })}
     >
       <div className={styles.navLinks}>
-        <Link href={'/'} scroll={true} passHref>
-          <a className={styles.navLink}>Home</a>
+        <Link href={'/'} scroll={true} passHref className={styles.navLink}>
+          Home
         </Link>
-        <Link href={`/${subredditName}`} scroll={true} passHref>
-          <a className={styles.navLink}>{subredditName}</a>
+        <Link
+          href={`/${subredditName}`}
+          scroll={true}
+          passHref
+          className={styles.navLink}
+        >
+          {subredditName}
         </Link>
       </div>
       <ProfileDropdown />
