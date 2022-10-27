@@ -8,12 +8,13 @@ export const useMe = () =>
     'me',
     () => {
       if (useGlobal.getState().redditAccessToken === '') {
-        throw new Error();
+        return Promise.resolve(null);
       }
 
       return getReddit()
         .get<Reddit.UserIdentity>('/api/v1/me')
-        .then(res => res.data);
+        .then(res => res.data)
+        .catch(error => null);
     },
     { retry: false }
   );

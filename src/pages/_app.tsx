@@ -31,9 +31,11 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (!accessTokenExists) {
       const getToken = async () => {
-        const res = await axios.get('/api/token');
-        useGlobal.getState().setRedditAccessToken(res.data.accessToken);
-        queryClient.invalidateQueries(['me']);
+        const res = await axios.get('/api/token').catch(err => null);
+        if (res) {
+          useGlobal.getState().setRedditAccessToken(res?.data.accessToken);
+          queryClient.invalidateQueries(['me']);
+        }
       };
 
       getToken();
