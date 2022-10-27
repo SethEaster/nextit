@@ -1,4 +1,4 @@
-# Nextit
+# [Nextit](https://nextit.seaster.dev/)
 
 A WIP web-client for Reddit. Built with Next.js.
 
